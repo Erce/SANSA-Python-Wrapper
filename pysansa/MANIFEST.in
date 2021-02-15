@@ -1,0 +1,3 @@
+recursive-include myjars *.jar
+include myjars/SANSA_all_dep_NO_spark.jar
+include *.jar
