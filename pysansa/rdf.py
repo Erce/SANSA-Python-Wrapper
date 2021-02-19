@@ -4,106 +4,109 @@ import findspark as fs
 import sys
 
 class Rdf:
-    # Initialize packages for different parts of SANSA RDF Layer
-    def __init__(self, spark, sc, path):
+    def __init__(self, sparkContext):
+        # Initializes packages for different parts of SANSA RDF Layer
         # SparkContext
-        self.sc = sc
+        self.sc = sparkContext
         # Rdf packages
-        self.io = sc._jvm.net.sansa_stack.rdf.spark.io.package
-        self.mappings = sc._jvm.net.sansa_stack.rdf.spark.mappings.package
-        self.model = sc._jvm.net.sansa_stack.rdf.spark.model.package
-        self.ops = sc._jvm.net.sansa_stack.rdf.spark.ops.package
-        self.partition = sc._jvm.net.sansa_stack.rdf.spark.partition.package
-        self.qualityassessment = sc._jvm.net.sansa_stack.rdf.spark.qualityassessment.package
-        self.stats = sc._jvm.net.sansa_stack.rdf.spark.stats.package
+        self.io = sparkContext._jvm.net.sansa_stack.rdf.spark.io.package
+        self.mappings = sparkContext._jvm.net.sansa_stack.rdf.spark.mappings.package
+        self.model = sparkContext._jvm.net.sansa_stack.rdf.spark.model.package
+        self.ops = sparkContext._jvm.net.sansa_stack.rdf.spark.ops.package
+        self.partition = sparkContext._jvm.net.sansa_stack.rdf.spark.partition.package
+        self.qualityassessment = sparkContext._jvm.net.sansa_stack.rdf.spark.qualityassessment.package
+        self.stats = sparkContext._jvm.net.sansa_stack.rdf.spark.stats.package
         self.packagesDict = {"io": self.io, "mappings": self.mappings, "model": self.model,
                          "ops": self.ops, "partition": self.partition, "qualityassesment": self.qualityassessment,
                          "stats": self.stats}
-        # Hadoop url and file path
-        #self.hadoopUrl = "hdfs://localhost:54310"
-        #self.rdfHadoopPath = self.hadoopUrl + ("/user/erce/rdf.nt"  if hadoopPath == '' else hadoopPath)
-        # Local file path
-        #self.rdfLocalPath = ""
         # Lang
-        langLib = sc._jvm.org.apache.jena.riot.Lang
+        langLib = sparkContext._jvm.org.apache.jena.riot.Lang
         self.lang = langLib.NTRIPLES
-        self.rdfReader = self.initializeRdfReader(spark)
-        self.triples = self.readTriples(self.rdfReader, path)
-        
-    # Initialite RDFReader object    
+        # self.rdfReader = self.initializeRdfReader(spark)
+        # self.triples = self.readAndReturnTripleObject(self.rdfReader, path)
+           
     def initializeRdfReader(self, spark):
-        # RDFReader
+        # Initializes RDFReader object 
         try:
             rdfReader = self.io.RDFReader(spark)
             
             return rdfReader
+        
         except Exception as exception:
              self.outputExceptionLog('initializeRdfReader', exception)
     
-    # Read and return triples
     def readTriples(self, rdfReader, path):
-        # Triples
+        # Reads and returns triples
         try:
-            triples = rdfReader.rdf(path)
+            self.triples = rdfReader.rdf(path)
         
-            return triples
         except Exception as exception:
              self.outputExceptionLog('readTriples', exception)
     
-    # Count the triples 
-    def countTriples(self):
+    def count(self):
+        # Counts the triples
         try:
             count = self.triples.count()
                          
             return count
+        
         except Exception as exception:
-             self.outputExceptionLog('countTriples', exception)
+             self.outputExceptionLog('count', exception)
+
     
-    # Return triples array with given size
-    def getTriplesWithGivenSize(self, size):
+    def getTriplesAsArray(self, size = 0):
+        # Returns triples array with given size
         try:
+            if size == 0:
+                size = self.countTriples()
+            
             triples = self.triples.take(size)
             
             return triples
+        
         except Exception as exception:
-             self.outputExceptionLog('getTriplesWithGivenSize', exception)
+             self.outputExceptionLog('getTriplesAsArray', exception)
              
-    # Print triples from the given tripleArray
+    
     def printTriples(self, tripleArray):
+        # Prints triples from the given tripleArray
         try:
             elementIndex = 1
             for val in tripleArray:
                 print("\n" + str(elementIndex) + ". Element: " + val.toString())
                 elementIndex += 1
+                
         except Exception as exception:
              self.outputExceptionLog('printTriples', exception)
             
-    # Save triples as text
     def saveTriplesAsText(self, rdfObject, outputPath):
+        # Saves triples as text
         try:
             rdfObject.saveAsTextFile(outputPath)
+            
         except Exception as exception:
              self.outputExceptionLog('saveTriplesAsText', exception)
             
-    # Prints rdf attributes of IO
     def printRdfIOAttributes(self):
+        # Prints rdf attributes of RDF/IO
         print("RDF IO Package methods: ")
         print(dir(self.io))
         
-    # Prints attributes of RDF Triples Object
-    def printRdfReaderAttributes(self):
-        print("RDF Triples methods: ")
+    def printTripleObjectAttributes(self):
+        # Prints attributes of RDF Triple Object
+        print("RDF Triple methods: ")
         print(dir(self.triples))
        
-    # Print methods of given object
-    def printMethodsOfGivenObject(self, obj):
+    def printAttributesOfGivenObject(self, obj):
+        # Prints methods of given object
         print("Methods of the given object: ")
         print(dir(obj))
         
-    # Print packages of Rdf class
-    def printRdfPackageList(self):
+    def printRdfClassPackageList(self):
+        # Prints packages of Rdf class
         print(self.packagesDict.keys())
         
     def outputExceptionLog(self, functionName, exception):
+        # Prints the exception and function name which throws the exception
         print("--> " + functionName, exception)
         self.sc.stop()
