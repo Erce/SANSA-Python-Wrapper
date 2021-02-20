@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module rdf</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>rdf</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/erce/Documents/SANSA-Python-Wrapper/rdf/rdf.py">/home/erce/Documents/SANSA-Python-Wrapper/rdf/rdf.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;Fri&nbsp;Feb&nbsp;6&nbsp;18:12:29&nbsp;2021<br>
+&nbsp;<br>
+@author:&nbsp;erce</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="rdf.html#Rdf">Rdf</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Rdf">class <strong>Rdf</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Rdf">Rdf</a>(sparkContext)<br>
+&nbsp;<br>
+rdf.py<br>
+========================================<br>
+Python&nbsp;wrapper&nbsp;class&nbsp;for&nbsp;SANSA&nbsp;RDF&nbsp;Layer<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Rdf-__init__"><strong>__init__</strong></a>(self, sparkContext)</dt><dd><tt>-&nbsp;Initializes&nbsp;packages&nbsp;for&nbsp;different&nbsp;parts&nbsp;of&nbsp;SANSA&nbsp;RDF&nbsp;Layer<br>
+-&nbsp;Creates&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;packages&nbsp;for&nbsp;easy&nbsp;access<br>
+-&nbsp;Packages&nbsp;from&nbsp;this&nbsp;<a href="#Rdf">Rdf</a>&nbsp;class&nbsp;can&nbsp;be&nbsp;used&nbsp;directly&nbsp;as&nbsp;in&nbsp;SANSA&nbsp;if<br>
+needed.&nbsp;<br>
+&nbsp;|&nbsp;E.g.:<br>
+&nbsp;|&nbsp;rdf.packagesDict["io"].RDFWriter(rdf.triples)<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+sparkContext<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;SparkContext&nbsp;<a href="builtins.html#object">object</a>&nbsp;which&nbsp;is&nbsp;created&nbsp;as&nbsp;first&nbsp;step&nbsp;of&nbsp;our&nbsp;examples</tt></dd></dl>
+
+<dl><dt><a name="Rdf-count"><strong>count</strong></a>(self)</dt><dd><tt>Counts&nbsp;the&nbsp;triples&nbsp;in&nbsp;the&nbsp;<a href="#Rdf">Rdf</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;by&nbsp;using&nbsp;count&nbsp;function&nbsp;from<br>
+SANSA&nbsp;RDF&nbsp;Layer.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+count&nbsp;:&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Size&nbsp;of&nbsp;the&nbsp;triples&nbsp;that&nbsp;is&nbsp;read&nbsp;from&nbsp;the&nbsp;given&nbsp;file</tt></dd></dl>
+
+<dl><dt><a name="Rdf-getTriplesAsArray"><strong>getTriplesAsArray</strong></a>(self, size=0)</dt><dd><tt>Gets&nbsp;the&nbsp;triples&nbsp;array&nbsp;with&nbsp;the&nbsp;given&nbsp;size&nbsp;from&nbsp;the&nbsp;triples&nbsp;that<br>
+is&nbsp;read&nbsp;from&nbsp;the&nbsp;given&nbsp;file.&nbsp;Uses&nbsp;"take"&nbsp;function&nbsp;from&nbsp;SANSA&nbsp;RDF<br>
+Layer.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+size&nbsp;:&nbsp;int,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;To&nbsp;return&nbsp;smaller&nbsp;array&nbsp;with&nbsp;given&nbsp;size&nbsp;or&nbsp;the&nbsp;whole&nbsp;array.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;default&nbsp;is&nbsp;0<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+triples&nbsp;:&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Triples&nbsp;that&nbsp;is&nbsp;taken&nbsp;from&nbsp;the&nbsp;given&nbsp;file</tt></dd></dl>
+
+<dl><dt><a name="Rdf-initializeRdfReader"><strong>initializeRdfReader</strong></a>(self, spark)</dt><dd><tt>Initializes&nbsp;RDFReader&nbsp;class&nbsp;from&nbsp;SANSA&nbsp;RDF&nbsp;Layer&nbsp;to&nbsp;be&nbsp;used&nbsp;to&nbsp;read<br>
+triples&nbsp;or&nbsp;for&nbsp;extended&nbsp;usage&nbsp;with&nbsp;deeper&nbsp;SANSA&nbsp;knowledge<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+spark&nbsp;:&nbsp;SparkSession<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SparkSession&nbsp;that&nbsp;was&nbsp;built&nbsp;with&nbsp;SANSA&nbsp;fat-jar&nbsp;and&nbsp;necessary<br>
+&nbsp;&nbsp;&nbsp;&nbsp;configuration<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+rdfReader&nbsp;:&nbsp;RDFReader<br>
+&nbsp;&nbsp;&nbsp;&nbsp;RDFReader&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;SANSA&nbsp;RDF&nbsp;Layer</tt></dd></dl>
+
+<dl><dt><a name="Rdf-outputExceptionLog"><strong>outputExceptionLog</strong></a>(self, functionName, exception)</dt><dd><tt>Exception&nbsp;function&nbsp;to&nbsp;print&nbsp;the&nbsp;exception&nbsp;and&nbsp;the&nbsp;function&nbsp;that&nbsp;<br>
+throws&nbsp;the&nbsp;expection<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+functionName&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Name&nbsp;of&nbsp;the&nbsp;function&nbsp;that&nbsp;throws&nbsp;the&nbsp;exception<br>
+exception&nbsp;:&nbsp;Exception</tt></dd></dl>
+
+<dl><dt><a name="Rdf-printAttributesOfGivenObject"><strong>printAttributesOfGivenObject</strong></a>(self, obj)</dt><dd><tt>Prints&nbsp;functions&nbsp;of&nbsp;the&nbsp;given&nbsp;<a href="builtins.html#object">object</a>.<br>
+&nbsp;|&nbsp;E.g.:<br>
+&nbsp;|&nbsp;rdf.<a href="#Rdf-printAttributesOfGivenObject">printAttributesOfGivenObject</a>(rdf.packagesDict["qualityassesment"])<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+obj&nbsp;:&nbsp;Object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Any&nbsp;<a href="builtins.html#object">object</a></tt></dd></dl>
+
+<dl><dt><a name="Rdf-printRdfClassPackageList"><strong>printRdfClassPackageList</strong></a>(self)</dt><dd><tt>Prints&nbsp;the&nbsp;SANSA&nbsp;RDF&nbsp;Package&nbsp;list&nbsp;that&nbsp;is&nbsp;loaded&nbsp;to&nbsp;this&nbsp;python&nbsp;wrapper.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;|&nbsp;E.g.:<br>
+&nbsp;|&nbsp;rdf.packagesDict["io"].RDFReader(spark)</tt></dd></dl>
+
+<dl><dt><a name="Rdf-printRdfIOAttributes"><strong>printRdfIOAttributes</strong></a>(self)</dt><dd><tt>Prints&nbsp;attributes&nbsp;of&nbsp;RDF/IO&nbsp;to&nbsp;see&nbsp;which&nbsp;functions&nbsp;can&nbsp;be&nbsp;used&nbsp;from<br>
+SANSA&nbsp;rdf/io&nbsp;Package.</tt></dd></dl>
+
+<dl><dt><a name="Rdf-printTripleObjectAttributes"><strong>printTripleObjectAttributes</strong></a>(self)</dt><dd><tt>Prints&nbsp;attributes&nbsp;of&nbsp;RDF&nbsp;Triple&nbsp;Object.&nbsp;It&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;see&nbsp;the<br>
+usable&nbsp;functions.&nbsp;It&nbsp;is&nbsp;possible&nbsp;to&nbsp;use&nbsp;functions&nbsp;directly&nbsp;with&nbsp;SANSA<br>
+knowledge.</tt></dd></dl>
+
+<dl><dt><a name="Rdf-printTriples"><strong>printTriples</strong></a>(self, tripleArray)</dt><dd><tt>Prints&nbsp;triples&nbsp;as&nbsp;string&nbsp;with&nbsp;indexes&nbsp;from&nbsp;the&nbsp;given&nbsp;tripleArray.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+tripleArray&nbsp;:&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Triple&nbsp;array</tt></dd></dl>
+
+<dl><dt><a name="Rdf-readTriples"><strong>readTriples</strong></a>(self, rdfReader, path)</dt><dd><tt>Reads&nbsp;triples&nbsp;by&nbsp;using&nbsp;RDFReader&nbsp;class&nbsp;rfom&nbsp;SANSA&nbsp;RDF&nbsp;Layer<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+rdfReader&nbsp;:&nbsp;RDFReader<br>
+&nbsp;&nbsp;&nbsp;&nbsp;RDFReader&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;SANSA&nbsp;RDF&nbsp;Layer<br>
+path&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Path&nbsp;to&nbsp;triple&nbsp;file&nbsp;in&nbsp;local&nbsp;machine&nbsp;or&nbsp;hadoop<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;E.g.:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;file:///data/rdf.nt&nbsp;===&gt;&nbsp;Local&nbsp;machine<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;hdfs://localhost:54310/user/erce/rdf.nt&nbsp;===&gt;&nbsp;Hadoop</tt></dd></dl>
+
+<dl><dt><a name="Rdf-saveAsTextFile"><strong>saveAsTextFile</strong></a>(self, rdfObject, outputPath)</dt><dd><tt>Save&nbsp;triples&nbsp;as&nbsp;text&nbsp;file&nbsp;in&nbsp;small&nbsp;partitions.&nbsp;Uses&nbsp;"saveAsTextFile"<br>
+from&nbsp;SANSA&nbsp;RDF&nbsp;Layer.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+rdfObject&nbsp;:&nbsp;RDF&nbsp;Triple&nbsp;Object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;<a href="builtins.html#object">object</a>&nbsp;of&nbsp;SANSA&nbsp;RDF&nbsp;IO&nbsp;Package&nbsp;"rdf"&nbsp;function<br>
+outputPath&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Output&nbsp;will&nbsp;be&nbsp;a&nbsp;directory&nbsp;with&nbsp;several&nbsp;text&nbsp;files&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;E.g.:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;file:///output&nbsp;===&gt;&nbsp;Local&nbsp;machine<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;hdfs://localhost:54310/user/erce/output&nbsp;===&gt;&nbsp;Hadoop</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
