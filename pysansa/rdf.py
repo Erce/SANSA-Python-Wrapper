@@ -1,32 +1,77 @@
-import pyspark as ps
-from pyspark import SparkContext, SparkConf
-import findspark as fs
-import sys
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Feb 6 18:12:29 2021
 
+@author: erce
+"""
 class Rdf:
+    """    
+    rdf.py
+    ========================================
+    Python wrapper class for SANSA RDF Layer
+    """
     def __init__(self, sparkContext):
-        # Initializes packages for different parts of SANSA RDF Layer
+        """
+        - Initializes packages for different parts of SANSA RDF Layer
+        - Creates a dictionary with packages for easy access
+        - Packages from this Rdf class can be used directly as in SANSA if
+        needed. 
+         | E.g.:
+         | rdf.packagesDict["io"].RDFWriter(rdf.triples)
+        
+        Parameters
+        ----------
+        sparkContext
+            A SparkContext object which is created as first step of our examples
+        
+        """
         # SparkContext
         self.sc = sparkContext
-        # Rdf packages
+        # SANSA Rdf packages
+        # SANSA Rdf IO package
         self.io = sparkContext._jvm.net.sansa_stack.rdf.spark.io.package
+        # SANSA Rdf Mappings package
         self.mappings = sparkContext._jvm.net.sansa_stack.rdf.spark.mappings.package
+        # SANSA Rdf Model package
         self.model = sparkContext._jvm.net.sansa_stack.rdf.spark.model.package
+        # SANSA Rdf Ops package
         self.ops = sparkContext._jvm.net.sansa_stack.rdf.spark.ops.package
+        # SANSA Rdf Partition package
         self.partition = sparkContext._jvm.net.sansa_stack.rdf.spark.partition.package
+        # SANSA Rdf Qualityassessment package
         self.qualityassessment = sparkContext._jvm.net.sansa_stack.rdf.spark.qualityassessment.package
+        # SANSA Rdf Stats package
         self.stats = sparkContext._jvm.net.sansa_stack.rdf.spark.stats.package
-        self.packagesDict = {"io": self.io, "mappings": self.mappings, "model": self.model,
-                         "ops": self.ops, "partition": self.partition, "qualityassesment": self.qualityassessment,
-                         "stats": self.stats}
+        # Put packages in a dictionary for easy access
+        self.packagesDict = {"io": self.io,
+                             "mappings": self.mappings,
+                             "model": self.model,
+                             "ops": self.ops,
+                             "partition": self.partition,
+                             "qualityassesment": self.qualityassessment,
+                             "stats": self.stats}
         # Lang
         langLib = sparkContext._jvm.org.apache.jena.riot.Lang
         self.lang = langLib.NTRIPLES
-        # self.rdfReader = self.initializeRdfReader(spark)
-        # self.triples = self.readAndReturnTripleObject(self.rdfReader, path)
            
     def initializeRdfReader(self, spark):
-        # Initializes RDFReader object 
+        """
+        Initializes RDFReader class from SANSA RDF Layer to be used to read
+        triples or for extended usage with deeper SANSA knowledge
+
+        Parameters
+        ----------
+        spark : SparkSession
+            SparkSession that was built with SANSA fat-jar and necessary
+            configuration
+
+        Returns
+        -------
+        rdfReader : RDFReader
+            RDFReader object from SANSA RDF Layer
+
+        """
         try:
             rdfReader = self.io.RDFReader(spark)
             
@@ -36,7 +81,20 @@ class Rdf:
              self.outputExceptionLog('initializeRdfReader', exception)
     
     def readTriples(self, rdfReader, path):
-        # Reads and returns triples
+        """
+        Reads triples by using RDFReader class rfom SANSA RDF Layer
+
+        Parameters
+        ----------
+        rdfReader : RDFReader
+            RDFReader object from SANSA RDF Layer
+        path : string
+            Path to triple file in local machine or hadoop
+             | E.g.:
+             | file:///data/rdf.nt ===> Local machine
+             | hdfs://localhost:54310/user/erce/rdf.nt ===> Hadoop
+            
+        """
         try:
             self.triples = rdfReader.rdf(path)
         
@@ -44,7 +102,16 @@ class Rdf:
              self.outputExceptionLog('readTriples', exception)
     
     def count(self):
-        # Counts the triples
+        """
+        Counts the triples in the Rdf object by using count function from
+        SANSA RDF Layer.
+
+        Returns
+        -------
+        count : int
+            Size of the triples that is read from the given file
+
+        """
         try:
             count = self.triples.count()
                          
@@ -55,10 +122,25 @@ class Rdf:
 
     
     def getTriplesAsArray(self, size = 0):
-        # Returns triples array with given size
+        """
+        Gets the triples array with the given size from the triples that
+        is read from the given file. Uses "take" function from SANSA RDF
+        Layer.
+
+        Parameters
+        ----------
+        size : int, optional
+            To return smaller array with given size or the whole array.
+            The default is 0
+
+        Returns
+        -------
+        triples : array
+            Triples that is taken from the given file
+        """
         try:
             if size == 0:
-                size = self.countTriples()
+                size = self.count()
             
             triples = self.triples.take(size)
             
@@ -69,7 +151,14 @@ class Rdf:
              
     
     def printTriples(self, tripleArray):
-        # Prints triples from the given tripleArray
+        """
+        Prints triples as string with indexes from the given tripleArray.
+
+        Parameters
+        ----------
+        tripleArray : array
+            Triple array
+        """
         try:
             elementIndex = 1
             for val in tripleArray:
@@ -79,8 +168,21 @@ class Rdf:
         except Exception as exception:
              self.outputExceptionLog('printTriples', exception)
             
-    def saveTriplesAsText(self, rdfObject, outputPath):
-        # Saves triples as text
+    def saveAsTextFile(self, rdfObject, outputPath):
+        """
+        Save triples as text file in small partitions. Uses "saveAsTextFile"
+        from SANSA RDF Layer.
+
+        Parameters
+        ----------
+        rdfObject : RDF Triple Object
+            Return object of SANSA RDF IO Package "rdf" function
+        outputPath : string
+            Output will be a directory with several text files 
+             | E.g.:
+             | file:///output ===> Local machine
+             | hdfs://localhost:54310/user/erce/output ===> Hadoop
+        """
         try:
             rdfObject.saveAsTextFile(outputPath)
             
@@ -88,25 +190,54 @@ class Rdf:
              self.outputExceptionLog('saveTriplesAsText', exception)
             
     def printRdfIOAttributes(self):
-        # Prints rdf attributes of RDF/IO
+        """
+        Prints attributes of RDF/IO to see which functions can be used from
+        SANSA rdf/io Package.
+        """
         print("RDF IO Package methods: ")
         print(dir(self.io))
         
     def printTripleObjectAttributes(self):
-        # Prints attributes of RDF Triple Object
+        """
+        Prints attributes of RDF Triple Object. It can be used to see the
+        usable functions. It is possible to use functions directly with SANSA
+        knowledge.
+        """
         print("RDF Triple methods: ")
         print(dir(self.triples))
        
     def printAttributesOfGivenObject(self, obj):
-        # Prints methods of given object
+        """
+        Prints functions of the given object.
+         | E.g.:
+         | rdf.printAttributesOfGivenObject(rdf.packagesDict["qualityassesment"])
+
+        Parameters
+        ----------
+        obj : Object
+            Any object
+        """
         print("Methods of the given object: ")
         print(dir(obj))
         
     def printRdfClassPackageList(self):
-        # Prints packages of Rdf class
+        """
+        Prints the SANSA RDF Package list that is loaded to this python wrapper.        
+         | E.g.:
+         | rdf.packagesDict["io"].RDFReader(spark)
+        """
         print(self.packagesDict.keys())
         
     def outputExceptionLog(self, functionName, exception):
-        # Prints the exception and function name which throws the exception
+        """
+        Exception function to print the exception and the function that 
+        throws the expection
+
+        Parameters
+        ----------
+        functionName : string
+            Name of the function that throws the exception
+        exception : Exception
+        """
         print("--> " + functionName, exception)
         self.sc.stop()
