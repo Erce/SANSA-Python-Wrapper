@@ -8,7 +8,7 @@ COMPUTER SCIENCE DEPARTMENT, UNIVERSITY OF BONN
 
 * * *
 
-[Erce Can Balcioglu](#), [Alex](#), [Pahulmet Singh](#), [Ulvi Shukurzade](https://github.com/UlviShukurzade)
+[Erce Can Balcioglu](#), [Alexander Krasnobaev](#https://github.com/AlexMK1991), [Pahulmet Singh](#), [Ulvi Shukurzade](https://github.com/UlviShukurzade)
 
 We installed it by referring to the link below, however, there are some links not working like with java8 and changes in versions of hadoop and spark installed, so we would recommend following this sheet for first time users. A lot of text is straightforward copied from the link below which has been really helpful. 
 
