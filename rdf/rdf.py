@@ -4,12 +4,16 @@
 Created on Fri Feb 6 18:12:29 2021
 
 @author: erce
+
+This class aims to wrap and use SANSA-Stack RDF layer functionalities
+through Python. 
 """
 class Rdf:
     """    
     rdf.py
-    ========================================
-    Python wrapper class for SANSA RDF Layer
+    ==============================================
+    Python wrapper class for SANSA-Stack RDF Layer
+    ==============================================
     """
     def __init__(self, sparkContext):
         """
@@ -82,7 +86,7 @@ class Rdf:
     
     def readTriples(self, rdfReader, path):
         """
-        Reads triples by using RDFReader class rfom SANSA RDF Layer
+        Reads triples by using RDFReader class from SANSA RDF Layer
 
         Parameters
         ----------
@@ -211,7 +215,7 @@ class Rdf:
         Prints functions of the given object.
          | E.g.:
          | rdf.printAttributesOfGivenObject(rdf.packagesDict["qualityassesment"])
-
+        
         Parameters
         ----------
         obj : Object
@@ -231,13 +235,14 @@ class Rdf:
     def outputExceptionLog(self, functionName, exception):
         """
         Exception function to print the exception and the function that 
-        throws the expection
+        throws the exception
 
         Parameters
         ----------
         functionName : string
             Name of the function that throws the exception
         exception : Exception
+            Exception object in Python
         """
         print("--> " + functionName, exception)
         self.sc.stop()
