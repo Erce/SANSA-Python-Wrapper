@@ -2,14 +2,13 @@
 
 * * *
 
-### MA-INF 4314 - Lab Semantic Data Web Technologies
-
-
+### MA-INF 4314 - Lab Semantic Data Web Technologies - SANSA-Stack Python Wrapper
 
 * * *
 
 [Erce Can Balcioglu](#), [Alexander Krasnobaev](https://github.com/AlexMK1991), [Pahulmet Singh](#), [Ulvi Shukurzade](https://github.com/UlviShukurzade)
 
+#### Installation steps:
 We installed it by referring to the link below, however, there are some links not working like with java8 and changes in versions of hadoop and spark installed, so we would recommend following this sheet for first time users. A lot of text is straightforward copied from the link below which has been really helpful. 
 
 [https://github.com/SmartDataAnalytics/MA-INF-4223-DBDA-Lab/blob/master/labs/WorkSheet-1.md](https://github.com/SmartDataAnalytics/MA-INF-4223-DBDA-Lab/blob/master/labs/WorkSheet-1.md) 
