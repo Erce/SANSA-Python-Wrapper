@@ -2,8 +2,14 @@
 <span id="sansa-stack-rdf-layer"></span><h1>SANSA-Stack RDF Layer<a class="headerlink" href="#module-rdf" title="Permalink to this headline"></a></h1>
 <p>Created on Fri Feb 6 18:12:29 2021</p>
 <p>@author: erce</p>
-<p>This class aims to wrap and use SANSA-Stack RDF layer functionalities
+<p>This class is wrapper to use SANSA-Stack RDF layer functionalities
 through Python.</p>
+<p>It runs on SparkSession by importing SANSA-Stack jar with dependencies to
+SparkContext then build a SparkSession with the SparkContext.</p>
+<p>If Hadoop is installed in the system, it can be used to read and write data
+with Hadoop url. From the SANSA-Stack and our documentation, default
+local Hadoop url is =&gt; hdfs://localhost:54310/user/[username]
+| E.g: hdfs://localhost:54310/user/erce</p>
 <dl class="py class">
 <dt id="rdf.Rdf">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rdf.</span></code><code class="sig-name descname"><span class="pre">Rdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sparkContext</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf" title="Permalink to this definition"></a></dt>
@@ -21,16 +27,16 @@ through Python.</p>
 <td><p>Gets the triples array with the given size from the triples that is read from the given file.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rdf.Rdf.initializeRdfReader" title="rdf.Rdf.initializeRdfReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initializeRdfReader</span></code></a>(spark)</p></td>
-<td><p>Initializes RDFReader class from SANSA RDF Layer to be used to read triples or for extended usage with deeper SANSA knowledge</p></td>
+<td><p>Initializes RDFReader class from SANSA RDF Layer to be used to read triples or for extended usage with deeper SANSA-Stack knowledge</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rdf.Rdf.outputExceptionLog" title="rdf.Rdf.outputExceptionLog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">outputExceptionLog</span></code></a>(functionName,&nbsp;exception)</p></td>
-<td><p>Exception function to print the exception and the function that throws the exception</p></td>
+<td><p>Exception function to print the exception and the function that throws the exception.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rdf.Rdf.printAttributesOfGivenObject" title="rdf.Rdf.printAttributesOfGivenObject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">printAttributesOfGivenObject</span></code></a>(obj)</p></td>
-<td><p>Prints functions of the given object.</p></td>
+<td><p>Prints functions of the given object by using “dir” function in Python</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rdf.Rdf.printRdfClassPackageList" title="rdf.Rdf.printRdfClassPackageList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">printRdfClassPackageList</span></code></a>()</p></td>
-<td><p>Prints the SANSA RDF Package list that is loaded to this python wrapper.</p></td>
+<td><p>Prints the SANSA-Stack RDF Package list that is loaded to this python wrapper. | E.g.:  | rdf.packagesDict[“io”].RDFReader(spark).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rdf.Rdf.printRdfIOAttributes" title="rdf.Rdf.printRdfIOAttributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">printRdfIOAttributes</span></code></a>()</p></td>
 <td><p>Prints attributes of RDF/IO to see which functions can be used from SANSA rdf/io Package.</p></td>
@@ -88,7 +94,7 @@ The default is 0</p>
 <dt id="rdf.Rdf.initializeRdfReader">
 <code class="sig-name descname"><span class="pre">initializeRdfReader</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.initializeRdfReader" title="Permalink to this definition"></a></dt>
 <dd><p>Initializes RDFReader class from SANSA RDF Layer to be used to read
-triples or for extended usage with deeper SANSA knowledge</p>
+triples or for extended usage with deeper SANSA-Stack knowledge</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>spark</strong> (<em>SparkSession</em>) – SparkSession that was built with SANSA fat-jar and necessary
@@ -107,7 +113,9 @@ configuration</p>
 <dt id="rdf.Rdf.outputExceptionLog">
 <code class="sig-name descname"><span class="pre">outputExceptionLog</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">functionName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.outputExceptionLog" title="Permalink to this definition"></a></dt>
 <dd><p>Exception function to print the exception and the function that
-throws the exception</p>
+throws the exception.
+Stops the SparkSession in case of failure as well if there are too many
+SparkSessions running, creating new SparkSession in examples will fail.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -122,7 +130,7 @@ throws the exception</p>
 <dt id="rdf.Rdf.printAttributesOfGivenObject">
 <code class="sig-name descname"><span class="pre">printAttributesOfGivenObject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printAttributesOfGivenObject" title="Permalink to this definition"></a></dt>
 <dd><dl>
-<dt>Prints functions of the given object.</dt><dd><div class="line-block">
+<dt>Prints functions of the given object by using “dir” function in Python</dt><dd><div class="line-block">
 <div class="line">E.g.:</div>
 <div class="line">rdf.printAttributesOfGivenObject(rdf.packagesDict[“qualityassesment”])</div>
 </div>
@@ -138,13 +146,14 @@ throws the exception</p>
 <dl class="py method">
 <dt id="rdf.Rdf.printRdfClassPackageList">
 <code class="sig-name descname"><span class="pre">printRdfClassPackageList</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printRdfClassPackageList" title="Permalink to this definition"></a></dt>
-<dd><dl>
-<dt>Prints the SANSA RDF Package list that is loaded to this python wrapper.</dt><dd><div class="line-block">
+<dd><p>Prints the SANSA-Stack RDF Package list that is loaded to this python
+wrapper.</p>
+<blockquote>
+<div><div class="line-block">
 <div class="line">E.g.:</div>
 <div class="line">rdf.packagesDict[“io”].RDFReader(spark)</div>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
@@ -158,8 +167,8 @@ SANSA rdf/io Package.</p>
 <dt id="rdf.Rdf.printTripleObjectAttributes">
 <code class="sig-name descname"><span class="pre">printTripleObjectAttributes</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printTripleObjectAttributes" title="Permalink to this definition"></a></dt>
 <dd><p>Prints attributes of RDF Triple Object. It can be used to see the
-usable functions. It is possible to use functions directly with SANSA
-knowledge.</p>
+usable functions. It is possible to use functions directly with
+SANSA-Stack knowledge.</p>
 </dd></dl>
 
 <dl class="py method">

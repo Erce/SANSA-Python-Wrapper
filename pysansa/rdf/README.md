@@ -1,8 +1,5 @@
-<img src="../schemas/diagramm.png">
-
-
 <div class="section" id="module-rdf">
-<span id="sansa-stack-rdf-layer"></span><h1>SANSA-Stack RDF Layer<a class="headerlink" href="#module-rdf" title="Permalink to this headline">¶</a></h1>
+<span id="sansa-stack-rdf-layer"></span><h1>SANSA-Stack RDF Layer<a class="headerlink" href="#module-rdf" title="Permalink to this headline"></a></h1>
 <p>Created on Fri Feb 6 18:12:29 2021</p>
 <p>@author: erce</p>
 <p>This class is wrapper to use SANSA-Stack RDF layer functionalities
@@ -15,7 +12,7 @@ local Hadoop url is =&gt; hdfs://localhost:54310/user/[username]
 | E.g: hdfs://localhost:54310/user/erce</p>
 <dl class="py class">
 <dt id="rdf.Rdf">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rdf.</span></code><code class="sig-name descname"><span class="pre">Rdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sparkContext</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rdf.</span></code><code class="sig-name descname"><span class="pre">Rdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sparkContext</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf" title="Permalink to this definition"></a></dt>
 <dd><p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -60,7 +57,7 @@ local Hadoop url is =&gt; hdfs://localhost:54310/user/[username]
 </table>
 <dl class="py method">
 <dt id="rdf.Rdf.count">
-<code class="sig-name descname"><span class="pre">count</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">count</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.count" title="Permalink to this definition"></a></dt>
 <dd><p>Counts the triples in the Rdf object by using count function from
 SANSA RDF Layer.</p>
 <dl class="field-list simple">
@@ -75,7 +72,7 @@ SANSA RDF Layer.</p>
 
 <dl class="py method">
 <dt id="rdf.Rdf.getTriplesAsArray">
-<code class="sig-name descname"><span class="pre">getTriplesAsArray</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.getTriplesAsArray" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">getTriplesAsArray</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.getTriplesAsArray" title="Permalink to this definition"></a></dt>
 <dd><p>Gets the triples array with the given size from the triples that
 is read from the given file. Uses “take” function from SANSA RDF
 Layer.</p>
@@ -95,7 +92,7 @@ The default is 0</p>
 
 <dl class="py method">
 <dt id="rdf.Rdf.initializeRdfReader">
-<code class="sig-name descname"><span class="pre">initializeRdfReader</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.initializeRdfReader" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">initializeRdfReader</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.initializeRdfReader" title="Permalink to this definition"></a></dt>
 <dd><p>Initializes RDFReader class from SANSA RDF Layer to be used to read
 triples or for extended usage with deeper SANSA-Stack knowledge</p>
 <dl class="field-list simple">
@@ -114,7 +111,7 @@ configuration</p>
 
 <dl class="py method">
 <dt id="rdf.Rdf.outputExceptionLog">
-<code class="sig-name descname"><span class="pre">outputExceptionLog</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">functionName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.outputExceptionLog" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">outputExceptionLog</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">functionName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.outputExceptionLog" title="Permalink to this definition"></a></dt>
 <dd><p>Exception function to print the exception and the function that
 throws the exception.
 Stops the SparkSession in case of failure as well if there are too many
@@ -131,7 +128,7 @@ SparkSessions running, creating new SparkSession in examples will fail.</p>
 
 <dl class="py method">
 <dt id="rdf.Rdf.printAttributesOfGivenObject">
-<code class="sig-name descname"><span class="pre">printAttributesOfGivenObject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printAttributesOfGivenObject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">printAttributesOfGivenObject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printAttributesOfGivenObject" title="Permalink to this definition"></a></dt>
 <dd><dl>
 <dt>Prints functions of the given object by using “dir” function in Python</dt><dd><div class="line-block">
 <div class="line">E.g.:</div>
@@ -148,7 +145,7 @@ SparkSessions running, creating new SparkSession in examples will fail.</p>
 
 <dl class="py method">
 <dt id="rdf.Rdf.printRdfClassPackageList">
-<code class="sig-name descname"><span class="pre">printRdfClassPackageList</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printRdfClassPackageList" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">printRdfClassPackageList</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printRdfClassPackageList" title="Permalink to this definition"></a></dt>
 <dd><p>Prints the SANSA-Stack RDF Package list that is loaded to this python
 wrapper.</p>
 <blockquote>
@@ -161,14 +158,14 @@ wrapper.</p>
 
 <dl class="py method">
 <dt id="rdf.Rdf.printRdfIOAttributes">
-<code class="sig-name descname"><span class="pre">printRdfIOAttributes</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printRdfIOAttributes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">printRdfIOAttributes</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printRdfIOAttributes" title="Permalink to this definition"></a></dt>
 <dd><p>Prints attributes of RDF/IO to see which functions can be used from
 SANSA rdf/io Package.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="rdf.Rdf.printTripleObjectAttributes">
-<code class="sig-name descname"><span class="pre">printTripleObjectAttributes</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printTripleObjectAttributes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">printTripleObjectAttributes</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printTripleObjectAttributes" title="Permalink to this definition"></a></dt>
 <dd><p>Prints attributes of RDF Triple Object. It can be used to see the
 usable functions. It is possible to use functions directly with
 SANSA-Stack knowledge.</p>
@@ -176,7 +173,7 @@ SANSA-Stack knowledge.</p>
 
 <dl class="py method">
 <dt id="rdf.Rdf.printTriples">
-<code class="sig-name descname"><span class="pre">printTriples</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tripleArray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printTriples" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">printTriples</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tripleArray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.printTriples" title="Permalink to this definition"></a></dt>
 <dd><p>Prints triples as string with indexes from the given tripleArray.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -187,7 +184,7 @@ SANSA-Stack knowledge.</p>
 
 <dl class="py method">
 <dt id="rdf.Rdf.readTriples">
-<code class="sig-name descname"><span class="pre">readTriples</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdfReader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.readTriples" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">readTriples</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdfReader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.readTriples" title="Permalink to this definition"></a></dt>
 <dd><p>Reads triples by using RDFReader class from SANSA RDF Layer</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -209,7 +206,7 @@ SANSA-Stack knowledge.</p>
 
 <dl class="py method">
 <dt id="rdf.Rdf.saveAsTextFile">
-<code class="sig-name descname"><span class="pre">saveAsTextFile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdfObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.saveAsTextFile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">saveAsTextFile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rdfObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rdf.Rdf.saveAsTextFile" title="Permalink to this definition"></a></dt>
 <dd><p>Save triples as text file in small partitions. Uses “saveAsTextFile”
 from SANSA RDF Layer.</p>
 <dl class="field-list simple">

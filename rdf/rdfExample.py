@@ -5,8 +5,13 @@ Created on Sat Feb 20 01:42:30 2021
 
 @author: erce
 """
+import pathlib
+# Get the current path
+currentPath = pathlib.Path().absolute()
+import sys
+sys.path.insert(0, str(currentPath) + '/..')
 from pyspark import SparkContext, SparkConf
-from rdf import Rdf
+from pysansa.rdf.rdf import Rdf
 import pathlib
 
 # Get the current path
@@ -27,7 +32,7 @@ size = rdf.count()
 # Print size of triples
 print("Size of triples: " + str(size))
 # Get triples as array
-triples = rdf.getTriplesAsArray(30)
+triples = rdf.getTriples(30)
 # Print triples
 rdf.printTriples(triples)
 # Print attributes of RDF/IO

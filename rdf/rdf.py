@@ -5,8 +5,17 @@ Created on Fri Feb 6 18:12:29 2021
 
 @author: erce
 
-This class aims to wrap and use SANSA-Stack RDF layer functionalities
-through Python. 
+This class is a wrapper to use SANSA-Stack RDF layer functionalities
+through Python.
+
+It runs on SparkSession by importing SANSA-Stack jar with dependencies to
+SparkContext then build a SparkSession with the SparkContext.
+
+If Hadoop is installed in the system, it can be used to read and write data 
+from/to Hadoop url. From the SANSA-Stack and our documentation, default
+local Hadoop url is => hdfs://localhost:54310/user/[username]
+| E.g: hdfs://localhost:54310/user/erce
+
 """
 class Rdf:
     """    
@@ -27,7 +36,8 @@ class Rdf:
         Parameters
         ----------
         sparkContext
-            A SparkContext object which is created as first step of our examples
+            A SparkContext object that includes SANSA-Stack jar with dependencies
+            It is created as first step of our examples
         
         """
         # SparkContext
@@ -62,7 +72,7 @@ class Rdf:
     def initializeRdfReader(self, spark):
         """
         Initializes RDFReader class from SANSA RDF Layer to be used to read
-        triples or for extended usage with deeper SANSA knowledge
+        triples or for extended usage with deeper SANSA-Stack knowledge
 
         Parameters
         ----------
@@ -125,7 +135,7 @@ class Rdf:
              self.outputExceptionLog('count', exception)
 
     
-    def getTriplesAsArray(self, size = 0):
+    def getTriples(self, size = 0):
         """
         Gets the triples array with the given size from the triples that
         is read from the given file. Uses "take" function from SANSA RDF
@@ -182,7 +192,7 @@ class Rdf:
         rdfObject : RDF Triple Object
             Return object of SANSA RDF IO Package "rdf" function
         outputPath : string
-            Output will be a directory with several text files 
+            Output will be a directory with several text files
              | E.g.:
              | file:///output ===> Local machine
              | hdfs://localhost:54310/user/erce/output ===> Hadoop
@@ -204,29 +214,30 @@ class Rdf:
     def printTripleObjectAttributes(self):
         """
         Prints attributes of RDF Triple Object. It can be used to see the
-        usable functions. It is possible to use functions directly with SANSA
-        knowledge.
+        usable functions. It is possible to use functions directly with 
+        SANSA-Stack knowledge.
         """
         print("RDF Triple methods: ")
         print(dir(self.triples))
        
     def printAttributesOfGivenObject(self, obj):
         """
-        Prints functions of the given object.
+        Prints functions of the given object by using "dir" function in Python
          | E.g.:
          | rdf.printAttributesOfGivenObject(rdf.packagesDict["qualityassesment"])
         
         Parameters
         ----------
         obj : Object
-            Any object
+            Any object to see the attributes and functions of it
         """
         print("Methods of the given object: ")
         print(dir(obj))
         
     def printRdfClassPackageList(self):
         """
-        Prints the SANSA RDF Package list that is loaded to this python wrapper.        
+        Prints the SANSA-Stack RDF Package list that is loaded to this python 
+        wrapper.      
          | E.g.:
          | rdf.packagesDict["io"].RDFReader(spark)
         """
@@ -235,7 +246,9 @@ class Rdf:
     def outputExceptionLog(self, functionName, exception):
         """
         Exception function to print the exception and the function that 
-        throws the exception
+        throws the exception.
+        Stops the SparkSession in case of failure as well if there are too many
+        SparkSessions running, creating new SparkSession in examples will fail.
 
         Parameters
         ----------
