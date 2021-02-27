@@ -17,6 +17,7 @@ We installed it by referring to the link below, however, there are some links no
 
 * **Virtualbox**: \- it is a virtualization software package similar to VMWare or other virtual tools. We will make use of it to setup and configure our working environment in order to complete assignments.
 Here are the steps to be followed:
+    -  For a virtual box: https://www.virtualbox.org/wiki/Downloads . Windows host is a 106MB file. Follow the setup instructions.
     - Download the latest Ubuntu ISO from [http://www.ubuntu.com/download/desktop](http://www.ubuntu.com/download/desktop) (use 64 bit).
     - Create a new virtual machine with options: Type = Linux, Version = Ubuntu (64 bit).
     -  Recommended memory size: 4GB
