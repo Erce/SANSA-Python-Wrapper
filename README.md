@@ -49,7 +49,7 @@ Here are the steps to be followed:
         ```
  - ## **Installing Java 8**
    - Visit the link [https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html ](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
-   - Or Alternatively to this [link](https://sabahgroups-my.sharepoint.com/:u:/g/personal/shulvi15509_sabah_edu_az/EUCQvQK2UkZMuhV03oJCCJUB62o33zhUBIfel8mz0KYj2g?e=0IwBPT) do download directly without sign-in
+   - Or Alternatively to this [link](https://sabahgroups-my.sharepoint.com/:u:/g/personal/shulvi15509_sabah_edu_az/EUCQvQK2UkZMuhV03oJCCJUB62o33zhUBIfel8mz0KYj2g?e=0IwBPT) to download directly without sign-in
    - Download jdk-8u281-linux-x64.tar.gz file. 
    - In the Terminal, enter the following commands: 
     ```sh
