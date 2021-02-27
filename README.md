@@ -355,7 +355,7 @@ Here are the steps to be followed:
     - now, go to the terminal and follow instructions
     ```sh
     cd
-    cd Downloads
+    cd ~/Downloads
     ls
     # you should see .tgz file in the list
     ```
