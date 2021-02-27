@@ -77,7 +77,7 @@ Here are the steps to be followed:
     ```
     - If everything went right, the following command should give you version of Java without error. 
     ```sh
-    java –version
+    java -version
     ```
     - If you entered every command correctly and still there is error, restart might help. Restart and continue from checking version.
        #
