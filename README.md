@@ -536,7 +536,7 @@ Here are the steps to be followed:
     ## Now, it is time to open Notebook file we previously downloaded,
         
     ```sh
-    cd Desktop
+    cd ~/Desktop
 
     #move to the folder where you put pysansa folder and ML_Notebook.ipynb, in our case sansa
     cd sansa
