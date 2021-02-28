@@ -546,11 +546,11 @@ Here are the steps to be followed:
     ```    
     ## Now you can open the provided notebookfile and run the cells
     
-+ To run the RDF layer examples in Jupyter notebook:
-  + Go to rdf directory in sansa directory in Jupyter Notebook
-  + Click to rdfExampleNotebook.ipynb
-  + Go to 'Cell' in the toolbar and click 'Run all'
-  + After a few seconds, you can see the results (Printed triples, printed object attributes, size of triples file etc.)
+  + To run the RDF layer examples in Jupyter notebook:
+    + Go to rdf directory in sansa directory in Jupyter Notebook
+    + Click to rdfExampleNotebook.ipynb
+    + Go to 'Cell' in the toolbar and click 'Run all'
+    + After a few seconds, you can see the results (Printed triples, printed object attributes, size of triples file etc.)
     
   + To run the Query layer examples in Jupyter notebook:
     + Go to query directory in sansa directory in Jupyter Notebook
