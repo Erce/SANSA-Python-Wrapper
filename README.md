@@ -31,7 +31,7 @@ Here are the steps to be followed:
         - On the Boot Screen: "Install Ubuntu"
         - Deselect both of "Download Updates while Installing" and "Install Third-Party Software"
         - Press “Continue”
-        - If there is option "Install Ubuntu alongside Windows" select that, otherwise, 
+        - If there is option "Install Ubuntu alongside Windows" select that (if you are setting dual boot instead of virtual machine), otherwise, 
         - Select "Erase disk and install Ubuntu"
         - Add your account informations:
         - Name = "yourname"; username = "username"; password = "****"; 
