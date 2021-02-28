@@ -502,7 +502,7 @@ Here are the steps to be followed:
     ```
     Go on the browser  http://localhost:8080/ . Refresh it and you will find a worker running. 
     #
-    - ## Now go to the [git repository](https://github.com/Erce/SANSA-Python-Wrapper) and download the code. extact and find the ***pysansa*** folder in it.Create a folder on Desktop named sansa and move ***pysansa*** folder into that new folder. Find .ipynb notebook file in pysansa folder, cut it and move to the new folder. Make sure that the notebook file and pysansa folder are in the same folder (in our case, in the folder called ***sansa***)
+    - ## Now go to the [git repository](https://github.com/Erce/SANSA-Python-Wrapper) and download the code. Create a folder on Desktop named sansa and extract the code into that new folder.
 
     #
     - ## Installation of Python, pip, notebook
