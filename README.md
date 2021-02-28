@@ -552,26 +552,23 @@ Here are the steps to be followed:
   + Go to 'Cell' in the toolbar and click 'Run all'
   + After a few seconds, you can see the results (Printed triples, printed object attributes, size of triples file etc.)
     
-+ To run the Query layer examples in Jupyter notebook:
-  + Go to query directory in sansa directory in Jupyter Notebook
-  + Click to queryExampleNotebook.ipynb
-  + Go to 'Cell' in the toolbar and click 'Run all'
-  + After a few seconds, you can see the results (Printed triples, printed dataframe which is returned from Query layer with a sparQL query etc.)
+  + To run the Query layer examples in Jupyter notebook:
+    + Go to query directory in sansa directory in Jupyter Notebook
+    + Click to queryExampleNotebook.ipynb
+    + Go to 'Cell' in the toolbar and click 'Run all'
+    + After a few seconds, you can see the results (Printed triples, printed dataframe which is returned from Query layer with a sparQL query etc.)
     
-+ To run the ML layer examples in Jupyter notebook:
-  + Go to ml_notebook directory in sansa directory in Jupyter Notebook
-  + Click to ML_Notebook.ipynb
-  + Go to 'Cell' in the toolbar and click 'Run all'
-  + After a few seconds, you can see the output (You can find the output in the same directory in output_folder)
+  + To run the ML layer examples in Jupyter notebook:
+    + Go to ml_notebook directory in sansa directory in Jupyter Notebook
+    + Click to ML_Notebook.ipynb
+    + Go to 'Cell' in the toolbar and click 'Run all'
+    + After a few seconds, you can see the output (You can find the output in the same directory in output_folder)
     
-    ```sh
     
-    ```
-    
-    ## How to use the SANSA-Python-Wrapper in a new/different project:
-      + Move pysansa folder to your project's directory
-      + Go to your project's directory
-      + Install pysansa package by running this command -> ***pip3 install -e pysansa***
-      + Create a notebook in the same directory with pysansa
-      + Now you can use pysansa and its layers by adding this line in the beggining of your notebook -> ***import pysansa***
-      + You can find the example usages in our project under ml_notebook, rdf, query directories in the relevant jupyter notebooks
+# How to use the SANSA-Python-Wrapper in a new/different project:
+  + Move pysansa folder to your project's directory
+  + Go to your project's directory
+  + Install pysansa package by running this command -> ***pip3 install -e pysansa***
+  + Create a notebook in the same directory with pysansa
+  + Now you can use pysansa and its layers by adding this line in the beggining of your notebook -> ***import pysansa***
+  + You can find the example usages in our project under ml_notebook, rdf, query directories in the relevant jupyter notebooks
