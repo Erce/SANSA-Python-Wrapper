@@ -161,7 +161,7 @@ class Rdf:
             return triples
         
         except Exception as exception:
-             self.outputExceptionLog('getTriplesAsArray', exception)
+             self.outputExceptionLog('getTriples', exception)
              
     
     def printTriples(self, tripleArray):
