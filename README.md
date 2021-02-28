@@ -351,6 +351,7 @@ Here are the steps to be followed:
     ```
 
     - Got on this website: [ https://archive.apache.org/dist/spark/spark-3.0.1/](https://archive.apache.org/dist/spark/spark-3.0.1/)
+    - Or alternatively go to this [link](https://sabahgroups-my.sharepoint.com/:u:/g/personal/shulvi15509_sabah_edu_az/EdlfzRLwjkhOjcUR_i4IAuwBMLv6gJjyjSTKM8HgOKa24Q?e=FIAcoc) to download right version
     - find this **spark-3.0.1-bin-hadoop3.2.tgz** version and download it 
     - now, go to the terminal and follow instructions
     ```sh
