@@ -538,8 +538,9 @@ Here are the steps to be followed:
     ```sh
     cd ~/Desktop
 
-    #move to the folder where you put pysansa folder and ML_Notebook.ipynb, in our case sansa
+    #move to the folder where you put pysansa folder and ML_Notebook.ipynb, in our case 'sansa' (We are assuming this is the folder inside which you have the downloaded    pysansa folder)
     cd sansa
+    pip3 install -e pysansa
 
     python3 -m notebook
     ```    
