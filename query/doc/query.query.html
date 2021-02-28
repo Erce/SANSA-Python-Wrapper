@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module query.query</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="query.html"><font color="#ffffff">query</font></a>.query</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/erce/Documents/SANSA-Python-Wrapper/query/query.py">/home/erce/Documents/SANSA-Python-Wrapper/query/query.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;Fri&nbsp;Feb&nbsp;10&nbsp;22:45:51&nbsp;2021<br>
+&nbsp;<br>
+@author:&nbsp;erce<br>
+&nbsp;<br>
+This&nbsp;class&nbsp;is&nbsp;a&nbsp;wrapper&nbsp;to&nbsp;use&nbsp;SANSA-Stack&nbsp;<a href="#Query">Query</a>&nbsp;layer&nbsp;functionalities<br>
+through&nbsp;Python.<br>
+&nbsp;<br>
+It&nbsp;runs&nbsp;on&nbsp;SparkSession&nbsp;by&nbsp;importing&nbsp;SANSA-Stack&nbsp;jar&nbsp;with&nbsp;dependencies&nbsp;to<br>
+SparkContext&nbsp;then&nbsp;build&nbsp;a&nbsp;SparkSession&nbsp;with&nbsp;the&nbsp;SparkContext.<br>
+&nbsp;<br>
+If&nbsp;Hadoop&nbsp;is&nbsp;installed&nbsp;in&nbsp;the&nbsp;system,&nbsp;it&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;read&nbsp;and&nbsp;write&nbsp;data&nbsp;<br>
+from/to&nbsp;Hadoop&nbsp;url.&nbsp;From&nbsp;the&nbsp;SANSA-Stack&nbsp;and&nbsp;our&nbsp;documentation,&nbsp;default<br>
+local&nbsp;Hadoop&nbsp;url&nbsp;is&nbsp;=&gt;&nbsp;hdfs://localhost:54310/user/[username]<br>
+|&nbsp;E.g:&nbsp;hdfs://localhost:54310/user/erce</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="query.query.html#Query">Query</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Query">class <strong>Query</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Query">Query</a>(sparkContext)<br>
+&nbsp;<br>
+query.py<br>
+==========================================<br>
+Python&nbsp;wrapper&nbsp;class&nbsp;for&nbsp;SANSA&nbsp;<a href="#Query">Query</a>&nbsp;Layer<br>
+==========================================<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Query-__init__"><strong>__init__</strong></a>(self, sparkContext)</dt><dd><tt>Initialize&nbsp;packages&nbsp;for&nbsp;different&nbsp;parts&nbsp;of&nbsp;SANSA&nbsp;<a href="#Query">Query</a>&nbsp;Layer<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+sparkContext&nbsp;:&nbsp;SparkContext<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;SparkContext&nbsp;<a href="builtins.html#object">object</a>&nbsp;which&nbsp;is&nbsp;created&nbsp;as&nbsp;first&nbsp;step&nbsp;of&nbsp;our&nbsp;examples</tt></dd></dl>
+
+<dl><dt><a name="Query-convertToDataFrame"><strong>convertToDataFrame</strong></a>(self, obj)</dt><dd><tt>Converts&nbsp;<a href="builtins.html#object">object</a>&nbsp;to&nbsp;DataFrame&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+obj&nbsp;:&nbsp;Object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;runQueryOnSparqlify&nbsp;function<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+result&nbsp;:&nbsp;DataFrame<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;DataFrame&nbsp;<a href="builtins.html#object">object</a></tt></dd></dl>
+
+<dl><dt><a name="Query-count"><strong>count</strong></a>(self, obj)</dt><dd><tt>Counts&nbsp;DataFrame&nbsp;rows&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+obj&nbsp;:&nbsp;DataFrame<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;DataFrame&nbsp;<a href="builtins.html#object">object</a>&nbsp;that&nbsp;is&nbsp;converted&nbsp;from&nbsp;Sparqlify&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+count&nbsp;:&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Number&nbsp;of&nbsp;rows&nbsp;in&nbsp;the&nbsp;DataFrame</tt></dd></dl>
+
+<dl><dt><a name="Query-createAndGetDataLakeObject"><strong>createAndGetDataLakeObject</strong></a>(self, query)</dt><dd><tt>Creates&nbsp;and&nbsp;returns&nbsp;DataLake&nbsp;<a href="builtins.html#object">object</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+query&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Sparql&nbsp;query&nbsp;that&nbsp;fits&nbsp;to&nbsp;the&nbsp;triples<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Returns<br>
+-------<br>
+DataLake&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Object&nbsp;that&nbsp;returns&nbsp;from&nbsp;SANSA&nbsp;<a href="#Query">Query</a>&nbsp;package&nbsp;"DataLake"&nbsp;class</tt></dd></dl>
+
+<dl><dt><a name="Query-getColumn"><strong>getColumn</strong></a>(self, row, columnIndex)</dt><dd><tt>Gets&nbsp;a&nbsp;column&nbsp;from&nbsp;the&nbsp;given&nbsp;row&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+row&nbsp;:&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;row&nbsp;array&nbsp;that&nbsp;is&nbsp;taken&nbsp;from&nbsp;DataFrame<br>
+columnIndex&nbsp;:&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Column&nbsp;index&nbsp;in&nbsp;the&nbsp;range&nbsp;of&nbsp;the&nbsp;given&nbsp;row<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Chosen&nbsp;column&nbsp;from&nbsp;the&nbsp;given&nbsp;row</tt></dd></dl>
+
+<dl><dt><a name="Query-getRow"><strong>getRow</strong></a>(self, df, rowIndex)</dt><dd><tt>Gets&nbsp;a&nbsp;row&nbsp;from&nbsp;the&nbsp;given&nbsp;DataFrame&nbsp;with&nbsp;the&nbsp;given&nbsp;row&nbsp;index&nbsp;<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+df&nbsp;:&nbsp;DataFrame<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DataFrame&nbsp;<a href="builtins.html#object">object</a>&nbsp;<br>
+rowIndex&nbsp;:&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Index&nbsp;of&nbsp;any&nbsp;row&nbsp;that&nbsp;is&nbsp;wished&nbsp;to&nbsp;be&nbsp;returned<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+<a href="builtins.html#object">object</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;row&nbsp;<a href="builtins.html#object">object</a>&nbsp;chosen&nbsp;from&nbsp;the&nbsp;given&nbsp;DataFrame</tt></dd></dl>
+
+<dl><dt><a name="Query-outputExceptionLog"><strong>outputExceptionLog</strong></a>(self, functionName, exception)</dt><dd><tt>Exception&nbsp;function&nbsp;to&nbsp;print&nbsp;the&nbsp;exception&nbsp;and&nbsp;the&nbsp;function&nbsp;that&nbsp;<br>
+throws&nbsp;the&nbsp;exception.<br>
+Stops&nbsp;the&nbsp;SparkSession&nbsp;in&nbsp;case&nbsp;of&nbsp;failure&nbsp;as&nbsp;well&nbsp;if&nbsp;there&nbsp;are&nbsp;too&nbsp;many<br>
+SparkSessions&nbsp;running,&nbsp;creating&nbsp;new&nbsp;SparkSession&nbsp;in&nbsp;examples&nbsp;will&nbsp;fail.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+functionName&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Name&nbsp;of&nbsp;the&nbsp;function&nbsp;that&nbsp;throws&nbsp;the&nbsp;exception<br>
+exception&nbsp;:&nbsp;Exception<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Exception&nbsp;<a href="builtins.html#object">object</a>&nbsp;in&nbsp;Python</tt></dd></dl>
+
+<dl><dt><a name="Query-printAttributes"><strong>printAttributes</strong></a>(self, obj)</dt><dd><tt>Prints&nbsp;functions&nbsp;of&nbsp;the&nbsp;given&nbsp;<a href="builtins.html#object">object</a>&nbsp;by&nbsp;using&nbsp;"dir"&nbsp;function&nbsp;in&nbsp;Python&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+obj&nbsp;:&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Any&nbsp;<a href="builtins.html#object">object</a>&nbsp;to&nbsp;see&nbsp;the&nbsp;attributes&nbsp;and&nbsp;functions&nbsp;of&nbsp;it</tt></dd></dl>
+
+<dl><dt><a name="Query-printDF"><strong>printDF</strong></a>(self, rowArray)</dt><dd><tt>Prints&nbsp;the&nbsp;DataFrame&nbsp;rows&nbsp;with&nbsp;indexes<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+rowArray&nbsp;:&nbsp;DataFrame<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array&nbsp;that&nbsp;is&nbsp;taken&nbsp;with&nbsp;"take"&nbsp;function&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SANSA&nbsp;<a href="#Query">Query</a>&nbsp;package.&nbsp;Return&nbsp;of&nbsp;"takeFromDataFrame"&nbsp;function&nbsp;in&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wrapper</tt></dd></dl>
+
+<dl><dt><a name="Query-runQueryOnSparqlify"><strong>runQueryOnSparqlify</strong></a>(self, query)</dt><dd><tt>Runs&nbsp;the&nbsp;given&nbsp;sparql&nbsp;query&nbsp;on&nbsp;Sparqlify&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+query&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Sparql&nbsp;query&nbsp;that&nbsp;fits&nbsp;to&nbsp;the&nbsp;triples<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+result&nbsp;:&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;from&nbsp;SANSA&nbsp;<a href="#Query">Query</a>&nbsp;package&nbsp;"sparql"&nbsp;function</tt></dd></dl>
+
+<dl><dt><a name="Query-runQueryWithDataLake"><strong>runQueryWithDataLake</strong></a>(self, sparQLQuery, mappingsUrl, configUrl)</dt><dd><tt>Runs&nbsp;query&nbsp;with&nbsp;DataLake&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+sparQLQuery&nbsp;:&nbsp;string<br>
+mappingsUrl&nbsp;:&nbsp;string<br>
+configUrl&nbsp;:&nbsp;string<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+result&nbsp;:&nbsp;Object</tt></dd></dl>
+
+<dl><dt><a name="Query-setTriplesToSparqlifyExecutor"><strong>setTriplesToSparqlifyExecutor</strong></a>(self, triples)</dt><dd><tt>Chooses&nbsp;Sparqlify&nbsp;as&nbsp;default&nbsp;and&nbsp;returns&nbsp;the&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+triples&nbsp;:&nbsp;RDF&nbsp;Triple&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Triple&nbsp;<a href="builtins.html#object">object</a>&nbsp;that&nbsp;is&nbsp;returned&nbsp;from&nbsp;SANSA&nbsp;RDF&nbsp;IO&nbsp;Package&nbsp;"rdf"&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;function</tt></dd></dl>
+
+<dl><dt><a name="Query-show"><strong>show</strong></a>(self, result)</dt><dd><tt>Shows&nbsp;the&nbsp;data&nbsp;by&nbsp;using&nbsp;"show"&nbsp;function&nbsp;from&nbsp;SANSA&nbsp;<a href="#Query">Query</a>&nbsp;package<br>
+and&nbsp;print&nbsp;a&nbsp;table&nbsp;to&nbsp;the&nbsp;console.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+result&nbsp;:&nbsp;Object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;<a href="builtins.html#object">object</a>&nbsp;that&nbsp;is&nbsp;returned&nbsp;from&nbsp;runQueryOnSparqlify&nbsp;function</tt></dd></dl>
+
+<dl><dt><a name="Query-takeFromDataFrame"><strong>takeFromDataFrame</strong></a>(self, df, size=0)</dt><dd><tt>Takes&nbsp;rows&nbsp;depending&nbsp;on&nbsp;the&nbsp;given&nbsp;size&nbsp;from&nbsp;DataFrame&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+df&nbsp;:&nbsp;DataFrame<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DataFrame&nbsp;<a href="builtins.html#object">object</a>&nbsp;<br>
+size&nbsp;:&nbsp;int,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Size&nbsp;of&nbsp;the&nbsp;taken&nbsp;rows&nbsp;from&nbsp;DataFrame&nbsp;with&nbsp;"take"&nbsp;function&nbsp;from&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SANSA&nbsp;<a href="#Query">Query</a>&nbsp;package.&nbsp;The&nbsp;default&nbsp;is&nbsp;0.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+result&nbsp;:&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Array&nbsp;from&nbsp;rows&nbsp;that&nbsp;are&nbsp;taken&nbsp;from&nbsp;the&nbsp;DataFrame</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
