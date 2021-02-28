@@ -545,23 +545,23 @@ Here are the steps to be followed:
     ```    
     ## Now you can open the provided notebookfile and run the cells
     
-    To run the RDF layer examples in Jupyter notebook.
-        - Go to rdf directory in sansa directory in Jupyter Notebook
-        - Click to rdfExampleNotebook.ipynb
-        - Go to 'Cell' in the toolbar and click 'Run all'
-        - After a few seconds, you can see the results (Printed triples, printed object attributes, size of triples file etc.)
++ To run the RDF layer examples in Jupyter notebook:
+  + Go to rdf directory in sansa directory in Jupyter Notebook
+  + Click to rdfExampleNotebook.ipynb
+  + Go to 'Cell' in the toolbar and click 'Run all'
+  + After a few seconds, you can see the results (Printed triples, printed object attributes, size of triples file etc.)
     
-    To run the Query layer examples in Jupyter notebook.
-        - Go to query directory in sansa directory in Jupyter Notebook
-        - Click to queryExampleNotebook.ipynb
-        - Go to 'Cell' in the toolbar and click 'Run all'
-        - After a few seconds, you can see the results (Printed triples, printed dataframe which is returned from Query layer with a sparQL query etc.)
++ To run the Query layer examples in Jupyter notebook:
+  + Go to query directory in sansa directory in Jupyter Notebook
+  + Click to queryExampleNotebook.ipynb
+  + Go to 'Cell' in the toolbar and click 'Run all'
+  + After a few seconds, you can see the results (Printed triples, printed dataframe which is returned from Query layer with a sparQL query etc.)
     
-    To run the ML layer examples in Jupyter notebook.
-        - Go to ml_notebook directory in sansa directory in Jupyter Notebook
-        - Click to ML_Notebook.ipynb
-        - Go to 'Cell' in the toolbar and click 'Run all'
-        - After a few seconds, you can see the output (You can find the output in the same directory in output_folder)
++ To run the ML layer examples in Jupyter notebook:
+  + Go to ml_notebook directory in sansa directory in Jupyter Notebook
+  + Click to ML_Notebook.ipynb
+  + Go to 'Cell' in the toolbar and click 'Run all'
+  + After a few seconds, you can see the output (You can find the output in the same directory in output_folder)
     
     ```sh
     
