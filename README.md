@@ -571,5 +571,5 @@ Here are the steps to be followed:
   + Go to your project's directory
   + Install pysansa package by running this command -> ***pip3 install -e pysansa***
   + Create a notebook in the same directory with pysansa
-  + Now you can use pysansa and its layers by adding this line in the beggining of your notebook -> ***import pysansa***
+  + Now you can use pysansa and its layers by adding this line in the beginning of your notebook -> ***import pysansa***
   + You can find the example usages in our project under ml_notebook, rdf, query directories in the relevant jupyter notebooks
